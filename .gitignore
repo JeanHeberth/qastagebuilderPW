@@ -1,0 +1,9 @@
+node_modules/
+/test-results/
+/playwright-report/
+/playwright-results/
+/LOG_DIR_IS_UNDEFINED/
+/tests-examples/
+/blob-report/
+/playwright/.cache/
+.idea
