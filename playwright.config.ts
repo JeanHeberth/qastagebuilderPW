@@ -24,8 +24,8 @@ export default defineConfig({
     reporter: [["html"], ["allure-playwright"], ["line"]],
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
-        baseURL: 'https://qastage.buildbox.one/18',
-        headless: false,
+        baseURL: 'https://qastage.buildbox.one/18/cadastro',
+        headless: true,
         video: 'on',
         screenshot: 'on',
         trace: 'on-first-retry',
