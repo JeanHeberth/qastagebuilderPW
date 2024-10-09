@@ -1,4 +1,5 @@
 import {faker} from "@faker-js/faker";
+
 const cpf = require('gerador-validador-cpf');
 
 export class FakerPage {
@@ -7,10 +8,11 @@ export class FakerPage {
 
 
     nome = faker.person.firstName();
-        sobreNome = faker.person.lastName();
-        email = faker.internet.email();
-        senha = faker.internet.password();
-        cpfAleatorio = cpf.generate();
+    sobreNome = faker.person.lastName();
+    email = faker.internet.email();
+    senha = faker.internet.password();
+    cpfAleatorio = cpf.generate();
+    cep = faker.location.zipCode('#####-###');
 
 
     getFakerData() {
@@ -19,7 +21,8 @@ export class FakerPage {
             sobreNome: this.sobreNome,
             cpf: this.cpfAleatorio,
             email: this.email,
-            senha: this.senha
+            senha: this.senha,
+            cep: this.cep
         };
     }
 }

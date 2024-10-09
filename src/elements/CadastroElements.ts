@@ -12,10 +12,19 @@ export class CadastroElements {
   static NIVEL_PROFICIENCIA = '//button[@aria-controls="dropdown-button-1"]'
   static TERMO_DE_USO = "#signup-personal-data-lgpd"
   static BTN_PROXIMO = "#signup_submit_button_1"
-
-
+  static INPUT_CEP = "#signup-address-cep"
+  static INPUT_CASA = "#signup-address-number"
+  static INPUT_COMPLEMENTO = "#signup-address-complement"
+  static BOTAO_PROXIMO_TELA_ENDERECO = "#signup_submit_button_3"
+  static URL = "https://qastage.buildbox.one/18/sign-in";
+  static BTN_ACESSAR_PLATAFORMA = "#wide_window_button"
+  static LOGIN = "#user_login"
+  static LOGIN_PASSWORD = "#user_pass"
+  static BTN_ENTRAR = "#wp-submit"
 
   static DROPDOWN_NIVEL_PROFICIENCIA(proficiencia: string) {
     return `//span[text()="${proficiencia}"]`
   }
+
 }
+

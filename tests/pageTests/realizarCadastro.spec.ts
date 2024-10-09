@@ -25,5 +25,15 @@ test('Realizar Cadastro', async () => {
     await cadastroPage.clicarNosTermosDeUso()
     await cadastroPage.clicarNoBotaoProximo()
 
+    // Inscrição de endereço
+    await cadastroPage.digitarCep("40100380")
+    await cadastroPage.digitarCasa("101")
+    await cadastroPage.digitarComplemento("Conjunto 1")
+    await cadastroPage.clicarNoBotaoProximoTelaEndereco()
+    await cadastroPage.clicarBotaoAcessarPlataforma()
+    await cadastroPage.validarUrl()
+
+    // acessando a plataforma
+    await cadastroPage.realizarLogin(faker.email, faker.senha)
 
 })
