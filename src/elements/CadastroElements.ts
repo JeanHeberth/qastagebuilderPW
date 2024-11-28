@@ -21,6 +21,7 @@ export class CadastroElements {
   static LOGIN = "#user_login"
   static LOGIN_PASSWORD = "#user_pass"
   static BTN_ENTRAR = "#wp-submit"
+  static MENSAGEM_ERRO = "//span[contains(.,'Precisa ser preenchido')]"
 
   static DROPDOWN_NIVEL_PROFICIENCIA(proficiencia: string) {
     return `//span[text()="${proficiencia}"]`

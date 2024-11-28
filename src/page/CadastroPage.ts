@@ -87,6 +87,10 @@ export class CadastroPage extends CadastroElements {
 
     }
 
+    async mensagemDeError() {
+        await this.page.locator(CadastroElements.MENSAGEM_ERRO)
+    }
+
 // Espera até que o botão esteja visível
 
 }
