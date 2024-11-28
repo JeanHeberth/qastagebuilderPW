@@ -25,7 +25,7 @@ export default defineConfig({
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
         baseURL: 'https://qastage.buildbox.one/18/cadastro',
-        headless: true,
+        headless: false,
         video: 'on',
         screenshot: 'on',
         trace: 'on-first-retry',

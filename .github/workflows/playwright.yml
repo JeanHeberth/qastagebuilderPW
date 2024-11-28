@@ -2,9 +2,9 @@ name: Playwright Tests
 
 on:
   push:
-    branches: [ developer ] # Apenas 'developer' dispara o workflow
+    branches: [ developer ] # Apenas a branch 'developer' dispara o workflow
   pull_request:
-    branches: [ developer ] # Opcional, caso use PRs na 'developer'
+    branches: [ developer ] # Opcional, se PRs forem usados na 'developer'
 
 jobs:
   test:
@@ -44,15 +44,24 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Garante que todas as branches e histórico sejam buscados
+
+      - name: Fetch all branches
+        run: git fetch --all # Garante que todas as referências remotas estejam disponíveis
 
       - name: Configure Git
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
+      - name: Verify developer branch exists
+        run: git rev-parse --verify origin/developer
+
       - name: Merge developer into main
         run: |
-          git fetch origin
           git checkout main
-          git merge --no-ff developer -m "Merge branch 'developer' into 'main'"
+          git merge --no-ff origin/developer -m "Merge branch 'developer' into 'main'"
           git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
