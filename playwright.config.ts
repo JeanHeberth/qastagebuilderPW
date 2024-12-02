@@ -25,38 +25,41 @@ export default defineConfig({
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
         baseURL: 'https://qastage.buildbox.one/18/cadastro',
-        headless: true,
         video: 'on',
         screenshot: 'on',
         trace: 'on-first-retry',
+        headless: false, // Modo visível
+        viewport: null, // Permite que a janela ocupe toda a tela
+        launchOptions: {
+            args: ['--start-maximized'], // Tenta maximizar no início
+        },
     },
 
     /* Configure projects for major browsers */
     projects: [
         {
-            name: 'chromium',
-            use: {...devices['Desktop Chrome']},
+            name: 'Chromium',
+            use: {browserName: 'chromium'},
         },
-
-        // {
-        //   name: 'firefox',
-        //   use: { ...devices['Desktop Firefox'] },
-        // },
-        //
-        // {
-        //   name: 'webkit',
-        //   use: { ...devices['Desktop Safari'] },
-        // },
-
-        /* Test against mobile viewports. */
-        // {
-        //   name: 'Mobile Chrome',
-        //   use: { ...devices['Pixel 5'] },
-        // },
-        // {
-        //   name: 'Mobile Safari',
-        //   use: { ...devices['iPhone 12'] },
-        // },
+      // {
+      //       name: 'firefox',
+      //       use: {...devices['Desktop Firefox']},
+      //   },
+      //
+      //   {
+      //       name: 'webkit',
+      //       use: {...devices['Desktop Safari']},
+      //   },
+      //
+      //   /* Test against mobile viewports. */
+      //   {
+      //     name: 'Mobile Chrome',
+      //     use: { ...devices['Pixel 5'] },
+      //   },
+      //   {
+      //     name: 'Mobile Safari',
+      //     use: { ...devices['iPhone 12'] },
+      //   },
 
         /* Test against branded browsers. */
         // {
