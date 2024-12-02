@@ -58,10 +58,4 @@ jobs:
       - name: Verify developer branch exists
         run: git rev-parse --verify origin/developer
 
-      - name: Merge developer into main
-        run: |
-          git checkout main
-          git merge --no-ff origin/developer -m "Merge branch 'developer' into 'main'"
-          git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
